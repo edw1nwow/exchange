@@ -1,4 +1,6 @@
 import React from 'react';
+import Card from './card'
+import s from './exchange-card.module.css'
 
 const ExchangeCard = () => {
     
@@ -8,34 +10,14 @@ const ExchangeCard = () => {
     {"ccy":"RUR","base_ccy":"UAH","buy":"0.35100","sale":"0.37800"},
     {"ccy":"BTC","base_ccy":"USD","buy":"9606.0182","sale":"10617.1780"}]
 
-    console.log( state)
-    return <div>
-        
-    <div>
-    <p><select size="5" onChange={''}>
-    <option disabled>Выберите валюту</option>
-    <option value={state[0].ccy} selected>USD</option>
-    <option value={state[1].ccy}>UAH</option>
-    <option value={state[2].ccy}>RUR</option>
-    <option value={state[3].ccy}>BTC</option>
-   </select></p>
-        <input type="text" defaultValue="0"/>
-    </div>
-
-    <div>
-    <p><select size="5" onChange={()=>console.log(1)}>
-    <option disabled>Выберите валюту</option>
-    <option value={state[0].ccy} >USD</option>
-    <option value={state[1].ccy} selected>UAH</option>
-    <option value={state[2].ccy}>RUR</option>
-    <option value={state[3].ccy}>BTC</option>
-   </select></p>
-        <input type="text" defaultValue="0"/>
-    </div>
-
-
-
-
+    console.log( )
+    return <div className={s.wrapper}>
+        <div className={s.main}>
+            <Card state={state}/>
+            <div className={s.rt} >
+                <button>exchange</button>
+            </div>
+        </div>
     </div>
 }
 
