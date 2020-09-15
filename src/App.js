@@ -3,7 +3,7 @@ import './App.css';
 import  ExchangeCard from './components/exchange-card';
 import state from './model/state';
 import ListCcy from './components/list-ccy'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (

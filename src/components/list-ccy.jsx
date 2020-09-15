@@ -11,14 +11,17 @@ class ListCcy extends Component {
         sale:''
     }
     
-    getValue = (e,) => {
+    getValue = (e) => {
         const {name, value} = e.target
         this.setState({ [name] : value})
-
     }
 
     handleSubmit = event => {
         event.preventDefault()
+        console.log(this.state)
+        state.push(this.state)
+        console.log(state)
+        
     }
 
     render() {
@@ -39,7 +42,7 @@ class ListCcy extends Component {
               <p><input name='base_ccy' value={base_ccy} onChange={this.getValue}/> Base currency</p>
               <p><input name='buy' value={buy} onChange={this.getValue}/> Buy</p>
               <p><input name='sale' value={sale} onChange={this.getValue}/> Sale </p>
-              <button >Add</button>
+              <button onClick={this.clearInput}>Add</button>
           </form>
       </div>
       
