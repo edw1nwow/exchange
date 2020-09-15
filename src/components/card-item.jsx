@@ -3,20 +3,22 @@ import { useCallback } from 'react';
 import { useRef } from 'react';
 
 
-const CardItem = ({state, variant}) => {
+const CardItem = ({state, variant, onChange, disableCY}) => {
  
-let v = useRef();
-const b = useCallback(()=>{
-console.log(v.current.value + 'hello')
-},[])
+let inputRef = useRef();
 
+const onHandler = useCallback(()=>{
+    if (typeof onChange === 'function'  && inputRef.current){
+        onChange(inputRef.current.value, variant)
+    }
+        },[])
 
     return <div>
        <p>
-        <select ref={v} onChange={b} defaultValue={variant} size="5">
-            <option defaultValue='' disabled>Выберите валюту</option>
+        <select ref={inputRef} defaultValue={variant} onChange={onHandler}   size="5">
+            <option value='' disabled>Выберите валюту</option>
             {state.map((item)=>{
-                return <option key={item.ccy}  variant={variant} defaultValue={item.ccy} >{item.ccy}</option>
+                return <option key={item.ccy} disabled={disableCY === item.ccy} selected={variant === item.ccy} value={item.ccy} >{item.ccy}</option>
             })}
         </select>
     </p>
